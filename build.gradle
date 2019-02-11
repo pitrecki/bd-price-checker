@@ -1,39 +1,6 @@
-plugins {
-    id 'java'
-    id 'application'
-    id 'groovy'
-}
-
-sourceCompatibility = '1.11'
-targetCompatibility = '1.11'
-
-repositories {
-    jcenter()
-    mavenCentral()
-}
-
-ext {
-    springBootVersion = '2.1.2.RELEASE'
-    lombokVersion = '1.18.4'
-    jsoupVersion = '1.11.3'
-}
-
-dependencies {
-    compile(
-            "org.jsoup:jsoup:$jsoupVersion",
-            "org.projectlombok:lombok:$lombokVersion",
-            "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-
-    )
-    testCompile(
-            "org.codehaus.groovy:groovy-all:2.5.4",
-            "org.spockframework:spock-core:1.2-groovy-2.5",
-    )
-    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion") {
-        exclude module: 'mockito-core'
-        exclude module: 'assertj-core'
-        exclude module: 'hamcrest-library'
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
     }
 }
-
-mainClassName = 'org.pitrecki.App'
