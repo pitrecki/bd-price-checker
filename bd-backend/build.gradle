@@ -19,11 +19,11 @@ ext {
 dependencies {
     compile(
             "org.jsoup:jsoup:$jsoupVersion",
-            "org.projectlombok:lombok:$lombokVersion",
             "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 
     )
     testCompile(
+            "com.github.tomakehurst:wiremock:2.21.0",
             "org.codehaus.groovy:groovy-all:2.5.4",
             "org.spockframework:spock-core:1.2-groovy-2.5",
     )
