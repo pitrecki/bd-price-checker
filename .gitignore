@@ -65,6 +65,9 @@ gradle-app.setting
 .idea/**/gradle.xml
 .idea/**/libraries
 
+Exclude whoole ide folder
+.idea
+
 # CMake
 cmake-build-debug/
 cmake-build-release/
