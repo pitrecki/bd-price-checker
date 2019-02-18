@@ -1,4 +1,4 @@
-package org.pitrecki;
+package org.pitrecki.utils;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.NoArgsConstructor;
