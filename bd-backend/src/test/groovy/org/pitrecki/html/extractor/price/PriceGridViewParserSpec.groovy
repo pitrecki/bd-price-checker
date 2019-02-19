@@ -1,4 +1,4 @@
-package org.pitrecki.html.parser.price
+package org.pitrecki.html.extractor.price
 
 import org.pitrecki.html.Connector
 import org.pitrecki.html.TestServer
@@ -16,7 +16,7 @@ class PriceGridViewParserSpec extends TestServer {
         def content = loadFile(FILE)
         mockRequest(REQUEST_PATH, content)
         def doc = new Connector().connect(FULL_PATH).parse()
-        def parser = new PriceGridViewParser(doc)
+        def parser = new PriceGridViewExtractor(doc)
         when:
         def prices = parser.extract(XPATH)
 

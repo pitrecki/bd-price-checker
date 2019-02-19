@@ -1,15 +1,15 @@
-package org.pitrecki.html.parser.price;
+package org.pitrecki.html.extractor.price;
 
 import lombok.AllArgsConstructor;
 import org.jsoup.nodes.Document;
-import org.pitrecki.html.parser.SinglePageParser;
+import org.pitrecki.html.extractor.SinglePageExtractor;
 
 import java.math.BigDecimal;
 
 import static org.pitrecki.html.utils.PriceExtractorUtils.extractPrice;
 
 @AllArgsConstructor
-public class PriceSinglePageParser implements SinglePageParser<BigDecimal> {
+public class PriceSinglePageExtractor implements SinglePageExtractor<BigDecimal> {
 
     private final Document document;
 

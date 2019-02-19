@@ -1,10 +1,10 @@
-package org.pitrecki.html.parser.price;
+package org.pitrecki.html.extractor.price;
 
 import lombok.AllArgsConstructor;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.TextNode;
-import org.pitrecki.html.parser.GridViewParser;
+import org.pitrecki.html.extractor.GridViewExtractor;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.toList;
 import static org.pitrecki.html.utils.PriceExtractorUtils.extractPrice;
 
 @AllArgsConstructor
-public class PriceGridViewParser implements GridViewParser<BigDecimal> {
+public class PriceGridViewExtractor implements GridViewExtractor<BigDecimal> {
 
     private final Document document;
 

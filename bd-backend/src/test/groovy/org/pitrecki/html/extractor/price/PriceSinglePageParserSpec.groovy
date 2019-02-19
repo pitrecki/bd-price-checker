@@ -1,9 +1,7 @@
-package org.pitrecki.html.parser
-
+package org.pitrecki.html.extractor.price
 
 import org.pitrecki.html.Connector
 import org.pitrecki.html.TestServer
-import org.pitrecki.html.parser.price.PriceSinglePageParser
 
 import static org.pitrecki.utils.MockServer.mockRequest
 import static org.pitrecki.utils.TestUtils.loadFile
@@ -18,12 +16,12 @@ class PriceSinglePageParserSpec extends TestServer {
         def content = loadFile(FILE)
         mockRequest(REQUEST_PATH, content)
         def doc = new Connector().connect(FULL_PATH).parse()
-        def parser = new PriceSinglePageParser(doc)
+        def parser = new PriceSinglePageExtractor(doc)
         when:
         def price = parser.extract(XPATH)
 
         then:
-        price > 0
+        price == 45.34
     }
 
 }
