@@ -1,9 +1,11 @@
 package org.pitrecki.utils;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import lombok.NoArgsConstructor;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -11,7 +13,11 @@ import static org.springframework.http.HttpStatus.OK;
 public class MockServer {
 
     private static final int DEFAULT_PORT = 1234;
-    private static final WireMockServer server = new WireMockServer(DEFAULT_PORT);
+    private static final WireMockConfiguration CONFIGURATION = options()
+            .notifier(null)
+            .port(DEFAULT_PORT);
+
+    private static final WireMockServer server = new WireMockServer(CONFIGURATION);
 
     public static void start() {
         server.start();

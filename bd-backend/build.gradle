@@ -18,9 +18,10 @@ ext {
 
 dependencies {
     compile(
+            "cglib:cglib-nodep:3.2.10", 
+            "net.bytebuddy:byte-buddy:1.9.10",
             "org.jsoup:jsoup:$jsoupVersion",
             "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-
     )
     testCompile(
             "com.github.tomakehurst:wiremock:2.21.0",
