@@ -1,13 +1,13 @@
 package org.pitrecki.html.extractor.grid
 
-import org.pitrecki.html.Connector
-import org.pitrecki.html.TestServer
+
+import org.pitrecki.html.extractor.AbstractExtractorSpec
 import org.pitrecki.html.extractor.ElementExtractor
 
 import static org.pitrecki.utils.MockServer.mockRequest
 import static org.pitrecki.utils.TestUtils.loadFile
 
-class AuthorGridViewExtractorSpec extends TestServer {
+class AuthorGridViewExtractorSpec extends AbstractExtractorSpec {
 
     private static final String FILE = "classpath:pages/grid_view.html"
     private static final String XPATH = "p.author"
@@ -19,16 +19,7 @@ class AuthorGridViewExtractorSpec extends TestServer {
     }
 
     def "should create list of authors from given document"() {
-        given:
-        def document = new Connector().connect(FULL_PATH).parse()
-
-        when:
-        def actual = extractor.extract(document)
-
-        then:
-        actual.containsAll(expected)
-
-        where:
-        expected << ["Kimitake Yoshioka", "Satoshi Monoko", "Akira Kurosawa"]
+        expect:
+        assertExtractedResults(extractor, ["Kimitake Yoshioka", "Satoshi Monoko", "Akira Kurosawa"])
     }
 }

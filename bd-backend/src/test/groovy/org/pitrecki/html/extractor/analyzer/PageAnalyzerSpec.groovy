@@ -26,8 +26,8 @@ class PageAnalyzerSpec extends TestServer {
         actual == extractor.extract(document)
 
         where:
-        file             | actual
-        GRID_VIEW_FILE   | true
-        SINGLE_VIEW_FILE | false
+        file             || actual
+        GRID_VIEW_FILE   || true
+        SINGLE_VIEW_FILE || false
     }
 }

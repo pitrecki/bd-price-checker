@@ -18,10 +18,10 @@ class PositionSpec extends Specification {
 
         then:
         verifyAll(position) {
-            getAuthor() == SOME_AUTHOR
-            getTitle() == SOME_TITTLE
-            getPrice() == PRICE
-            getCurrency() == CURRENCY
+            author == SOME_AUTHOR
+            title == SOME_TITTLE
+            price == PRICE
+            currency == CURRENCY
         }
     }
 }

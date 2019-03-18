@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static java.lang.Thread.sleep;
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -24,7 +25,14 @@ public class MockServer {
     }
 
     public static void stop() {
-        server.shutdown();
+        if (server.isRunning()) {
+            server.shutdown();
+        }
+    }
+
+    public static void flush() throws InterruptedException {
+        server.resetRequests();
+        sleep(101);
     }
 
     public static void mockRequest(String url, String responseBody) {

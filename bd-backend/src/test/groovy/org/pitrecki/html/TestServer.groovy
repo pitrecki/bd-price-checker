@@ -1,9 +1,9 @@
 package org.pitrecki.html
 
-
 import spock.lang.Specification
 
 import static java.lang.String.format
+import static org.pitrecki.utils.MockServer.flush
 import static org.pitrecki.utils.MockServer.start
 import static org.pitrecki.utils.MockServer.stop
 
@@ -15,6 +15,10 @@ abstract class TestServer extends Specification {
 
     void setupSpec() {
         start()
+    }
+
+    void cleanup() {
+        flush()
     }
 
     void cleanupSpec() {

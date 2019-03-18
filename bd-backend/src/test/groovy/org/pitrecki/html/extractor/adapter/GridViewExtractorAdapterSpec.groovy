@@ -35,7 +35,7 @@ class GridViewExtractorAdapterSpec extends Specification {
         def actual = adapter.createPositions(DOCUMENT)
 
         then:
-        actual.each { it == POSITION }
+        actual.each { assert it == POSITION }
 
         and:
         1 * currencyExtractor.extract(DOCUMENT) >> [CURRENCY, CURRENCY]
