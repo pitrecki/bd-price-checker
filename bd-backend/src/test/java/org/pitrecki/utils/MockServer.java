@@ -25,13 +25,11 @@ public class MockServer {
     }
 
     public static void stop() {
-        if (server.isRunning()) {
             server.shutdown();
-        }
     }
 
     public static void flush() throws InterruptedException {
-        server.resetRequests();
+        server.resetAll();
         sleep(101);
     }
 

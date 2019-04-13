@@ -16,8 +16,9 @@ public class ExtractorUtils {
     private static final String EMPTY = "";
     private static final String UTF_8 = "\\u0080-\\u9fff";
 
-    private static final Pattern PRICE_PATTERN = compile("[A-Za-z" + UTF_8 + "\n ]+");
-    private static final Pattern CURRENCY_PATTERN = compile("[\\p{Lu}\\p{Digit}.,\\s\\h]+");
+    private static final Pattern PRICE_PATTERN = compile("[A-Za-z&;" + UTF_8 + "\n ]+");
+    private static final String NBSP = "&nbsp;";
+    private static final Pattern CURRENCY_PATTERN = compile("[\\p{Lu}\\p{Digit}.," + NBSP + "\\s\\h]+");
 
     public static BigDecimal convertPrice(String s) {
         String price = PRICE_PATTERN.matcher(s)

@@ -3,6 +3,7 @@ package org.pitrecki.model
 import spock.lang.Specification
 
 import static org.pitrecki.model.Currency.PLN
+import static org.pitrecki.model.Position.aPosition
 
 class PositionSpec extends Specification {
 
@@ -14,7 +15,11 @@ class PositionSpec extends Specification {
 
     def "should generate position and return expected fields values"() {
         when:
-        def position = new Position(SOME_TITTLE, SOME_AUTHOR, PRICE, CURRENCY)
+        def position = aPosition()
+                .author(SOME_AUTHOR)
+                .currency(CURRENCY)
+                .title(SOME_TITTLE)
+                .price(PRICE).build()
 
         then:
         verifyAll(position) {

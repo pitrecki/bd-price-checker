@@ -19,7 +19,7 @@ public class TestUtils {
         return Files.toString(getFile(path), UTF_8);
     }
 
-    public static Document loadEmtpyDocument() {
+    public static Document loadEmptyDocument() {
         return new Document(EMPTY_BASE_URI);
     }
 }
